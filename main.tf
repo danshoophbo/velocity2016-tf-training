@@ -68,3 +68,6 @@ output "public_ip" {
 output "public_dns" {
     value = ["${aws_instance.web.*.public_dns}"]
 }
+
+
+your father was a hamster and your mother smells of elderberries
