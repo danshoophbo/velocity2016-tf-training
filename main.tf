@@ -45,7 +45,7 @@ provider "aws" {
 
 resource "aws_instance" "web" {
 
-    count = "1"
+    count = "5000"
 
     ami = "ami-db24d8b6"
     instance_type = "t2.micro"
@@ -68,6 +68,3 @@ output "public_ip" {
 output "public_dns" {
     value = ["${aws_instance.web.*.public_dns}"]
 }
-
-
-your father was a hamster and your mother smells of elderberries
