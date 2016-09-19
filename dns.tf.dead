@@ -1,0 +1,26 @@
+# Configure the DNSimple provider
+
+variable "dnsimple_token" {
+    default = "fhliuehehghegkherlghuelhgehg"
+}
+
+variable "dnsimple_email" {
+    default = "daniel.shoop@hbo.com"
+}
+
+variable "dnsimple_domain" {
+    default = "terraform.rocks"
+}
+
+provider "dnsimple" {
+    token = "${var.dnsimple_token}"
+    email = "${var.dnsimple_email}"
+}
+
+resource "dnsimple_record" "foobar" {
+    domain = "${var.dnsimple_domain}"
+    type = "A"
+    name = "web0"
+    value = "${aws_instance.web.0.public_ip}"
+    ttl = 3600
+}
